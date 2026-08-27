@@ -16,37 +16,58 @@
     a:hover{color:#f5cf4d;}
     ::selection{background:#e8b923;color:#0e2a1a;}
     .voGrain{position:absolute;inset:0;opacity:0.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;}
+    .vo-nav-links{display:flex;gap:28px;font-size:15px;font-weight:600;}
+    .vo-hamburger{display:none;}
+    .vo-cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-start;}
+    @media (max-width:640px){
+      .vo-nav-links{display:none;}
+      .vo-hamburger{display:flex;}
+      .vo-cta-row{flex-direction:column;align-items:stretch;width:100%;}
+      .vo-cta-row a{width:100%;box-sizing:border-box;}
+    }
   </style>
 </helmet>
 <div style="font-family:'Archivo',sans-serif;background:#0e2a1a;min-height:100vh;color:#f4ead0;">
 
-  <section style="position:relative;height:100vh;overflow:hidden;background:#0a1f13;">
-    <video ref="{{ videoRef }}" src="https://d8j0ntlcm91z4.cloudfront.net/user_3DT2htyCp6A1GNlzF6OYheF1hrj/hf_20260827_180722_5a581d80-1dd3-457d-a4a3-dcd2fcc9a17e.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" onSeeked="{{ onSeeked }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
-    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,19,0.15) 0%,rgba(10,31,19,0.75) 100%);z-index:1;"></div>
+  <section ref="{{ scrubTrackRef }}" style="position:relative;height:300vh;background:#0a1f13;">
+    <div style="position:sticky;top:0;height:100vh;overflow:hidden;">
+      <video ref="{{ videoRef }}" src="https://d8j0ntlcm91z4.cloudfront.net/user_3DT2htyCp6A1GNlzF6OYheF1hrj/hf_20260827_180722_5a581d80-1dd3-457d-a4a3-dcd2fcc9a17e.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,19,0.15) 0%,rgba(10,31,19,0.75) 100%);z-index:1;"></div>
 
-    <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;padding:28px 24px 0;">
-      <div style="display:flex;align-items:center;gap:14px;">
-        <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:36px;">
-        <span style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.03em;color:#f4ead0;">SÉMINAIRE ST-JOSEPH</span>
+      <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;padding:28px 24px 0;">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:36px;">
+          <span style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.03em;color:#f4ead0;">SÉMINAIRE ST-JOSEPH</span>
+        </div>
+        <div class="vo-nav-links">
+          <a href="#calendrier" style="text-decoration:none;color:#f4ead0;">Calendrier</a>
+          <a href="#sports" style="text-decoration:none;color:#f4ead0;">Sports</a>
+          <a href="#suivre" style="text-decoration:none;color:#f4ead0;">Nous suivre</a>
+        </div>
+        <button onClick="{{ toggleMenu }}" class="vo-hamburger" style="flex-direction:column;justify-content:center;gap:5px;background:none;border:none;padding:8px;cursor:pointer;">
+          <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
+          <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
+          <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
+        </button>
+      </nav>
+
+      <div style="{{ mobileAccordionStyle }}">
+        <a href="#calendrier" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">Calendrier</a>
+        <a href="#sports" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">Sports</a>
+        <a href="#suivre" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;">Nous suivre</a>
       </div>
-      <div style="display:flex;gap:28px;font-size:15px;font-weight:600;">
-        <a href="#calendrier" style="text-decoration:none;color:#f4ead0;">Calendrier</a>
-        <a href="#sports" style="text-decoration:none;color:#f4ead0;">Sports</a>
-        <a href="#suivre" style="text-decoration:none;color:#f4ead0;">Nous suivre</a>
-      </div>
-    </nav>
 
-    <h1 style="position:relative;z-index:2;max-width:1180px;margin:28px auto 0;padding:0 24px;text-align:left;font-family:'Anton',sans-serif;font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:0.01em;text-transform:uppercase;color:#f4ead0;">
-      La Fan Page <span style="color:#e8b923;">Vert et Or</span>
-    </h1>
-
-    <div style="position:relative;z-index:2;height:calc(100% - 160px);max-width:1180px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:64px;">
-      <p style="font-size:17px;line-height:1.45;max-width:560px;color:#cfe0d2;margin:0 0 22px;">
-        Tous les matchs, tous les sports, une seule place. Le calendrier officiel des partisans du Séminaire Saint-Joseph — football, volleyball, basketball, hockey et plus encore.
-      </p>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
-        <a href="#calendrier" style="display:inline-flex;align-items:center;justify-content:center;background:#e8b923;color:#0e2a1a;font-weight:800;font-size:15px;padding:14px 28px;border-radius:6px;text-decoration:none;">Voir le calendrier</a>
-        <a href="#suivre" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#f4ead0;font-weight:700;font-size:15px;padding:14px 28px;border:1px solid rgba(244,234,208,0.5);border-radius:6px;text-decoration:none;">Devenir partisan</a>
+      <div style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:20px 24px 0;text-align:left;">
+        <h1 style="margin:0 0 12px;font-family:'Anton',sans-serif;font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:0.01em;text-transform:uppercase;color:#f4ead0;">
+          La Fan Page <span style="color:#e8b923;">Vert et Or</span>
+        </h1>
+        <p style="font-size:16px;line-height:1.4;max-width:520px;color:#cfe0d2;margin:0 0 18px;">
+          Tous les matchs, tous les sports, une seule place. Le calendrier officiel des partisans du Séminaire Saint-Joseph.
+        </p>
+        <div class="vo-cta-row" style="justify-content:flex-start;">
+          <a href="#calendrier" style="display:inline-flex;align-items:center;justify-content:center;background:#e8b923;color:#0e2a1a;font-weight:800;font-size:15px;padding:14px 24px;border-radius:6px;text-decoration:none;white-space:nowrap;">Voir le calendrier</a>
+          <a href="#suivre" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#f4ead0;font-weight:700;font-size:15px;padding:14px 24px;border:1px solid rgba(244,234,208,0.5);border-radius:6px;text-decoration:none;white-space:nowrap;">Devenir partisan</a>
+        </div>
       </div>
     </div>
   </section>
@@ -124,60 +145,37 @@ const GAMES = [
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { filter: "Tous" };
+    this.state = { filter: "Tous", menuOpen: false };
     this.videoRef = React.createRef();
-    this.prevX = null;
-    this.targetTime = 0;
-    this.seeking = false;
+    this.scrubTrackRef = React.createRef();
+    this.rafId = null;
   }
 
+  toggleMenu = () => this.setState((s) => ({ menuOpen: !s.menuOpen }));
+
   componentDidMount() {
-    window.addEventListener('mousemove', this.handleMouseMove);
-    window.addEventListener('touchstart', this.handleTouchStart, { passive: true });
-    window.addEventListener('touchmove', this.handleTouchMove, { passive: true });
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
   }
 
   componentWillUnmount() {
-    window.removeEventListener('mousemove', this.handleMouseMove);
-    window.removeEventListener('touchstart', this.handleTouchStart);
-    window.removeEventListener('touchmove', this.handleTouchMove);
+    window.removeEventListener('scroll', this.onScroll);
+    if (this.rafId) cancelAnimationFrame(this.rafId);
   }
 
-  handleTouchStart = (e) => {
-    if (e.touches && e.touches.length) this.prevX = e.touches[0].clientX;
-  };
-
-  handleTouchMove = (e) => {
-    if (!e.touches || !e.touches.length) return;
-    this.handleMouseMove({ clientX: e.touches[0].clientX });
-  };
-
-  handleMouseMove = (e) => {
-    const video = this.videoRef.current;
-    if (this.prevX == null) { this.prevX = e.clientX; return; }
-    const delta = e.clientX - this.prevX;
-    this.prevX = e.clientX;
-    if (!video || !video.duration || isNaN(video.duration)) return;
-    const SENSITIVITY = 0.8;
-    const offset = (-delta / window.innerWidth) * SENSITIVITY * video.duration;
-    const base = this.seeking ? this.targetTime : video.currentTime;
-    let target = base + offset;
-    target = Math.max(0, Math.min(video.duration, target));
-    this.targetTime = target;
-    if (!this.seeking) {
-      this.seeking = true;
-      video.currentTime = this.targetTime;
-    }
-  };
-
-  onSeeked = () => {
-    const video = this.videoRef.current;
-    if (!video) return;
-    if (Math.abs(video.currentTime - this.targetTime) > 0.01) {
-      video.currentTime = this.targetTime;
-    } else {
-      this.seeking = false;
-    }
+  onScroll = () => {
+    if (this.rafId) return;
+    this.rafId = requestAnimationFrame(() => {
+      this.rafId = null;
+      const video = this.videoRef.current;
+      const track = this.scrubTrackRef.current;
+      if (!video || !track || !video.duration || isNaN(video.duration)) return;
+      const rect = track.getBoundingClientRect();
+      const scrollable = rect.height - window.innerHeight;
+      if (scrollable <= 0) return;
+      const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
+      video.currentTime = progress * video.duration;
+    });
   };
 
   setFilter = (s) => this.setState({ filter: s });
@@ -209,7 +207,13 @@ class Component extends DCLogic {
       };
     });
 
-    return { sportFilters, visibleGames, videoRef: this.videoRef, onSeeked: this.onSeeked };
+    const mobileAccordionStyle = {
+      position: 'relative', zIndex: 2, maxWidth: '1180px', margin: '0 auto',
+      display: this.state.menuOpen ? 'flex' : 'none', flexDirection: 'column',
+      background: 'rgba(10,31,19,0.92)', borderRadius: '10px', marginTop: '8px'
+    };
+
+    return { sportFilters, visibleGames, videoRef: this.videoRef, scrubTrackRef: this.scrubTrackRef, toggleMenu: this.toggleMenu, mobileAccordionStyle };
   }
 }
 </script>
