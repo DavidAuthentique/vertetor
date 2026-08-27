@@ -8,6 +8,7 @@
 <body>
 <x-dc>
 <helmet>
+  <link rel="icon" type="image/png" href="assets/favicon-vo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
   <style>
@@ -19,12 +20,13 @@
     .vo-nav-links{display:flex;gap:28px;font-size:15px;font-weight:600;}
     .vo-hamburger{display:none;}
     .vo-cta-row{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-start;}
+    .vo-hero-copy{position:relative;z-index:2;}
     @media (max-width:640px){
       .vo-nav-links{display:none;}
       .vo-hamburger{display:flex;}
       .vo-cta-row{flex-direction:column;align-items:stretch;width:100%;}
       .vo-cta-row a{width:100%;box-sizing:border-box;}
-      .vo-hero-copy{position:absolute;left:0;right:0;bottom:24px;padding-top:0;}
+      .vo-hero-copy{position:absolute !important;left:0;right:0;bottom:24px;padding-top:0;}
     }
   </style>
 </helmet>
@@ -45,7 +47,7 @@
           <a href="#sports" style="text-decoration:none;color:#f4ead0;">Sports</a>
           <a href="#suivre" style="text-decoration:none;color:#f4ead0;">Nous suivre</a>
         </div>
-        <button onClick="{{ toggleMenu }}" class="vo-hamburger" style="flex-direction:column;justify-content:center;gap:5px;background:none;border:none;padding:8px;cursor:pointer;">
+        <button type="button" onClick="{{ toggleMenu }}" class="vo-hamburger" style="position:relative;z-index:5;flex-direction:column;justify-content:center;gap:6px;background:none;border:none;padding:10px;cursor:pointer;touch-action:manipulation;">
           <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
           <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
           <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
@@ -58,7 +60,7 @@
         <a href="#suivre" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;">Nous suivre</a>
       </div>
 
-      <div class="vo-hero-copy" style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:20px 24px 0;text-align:left;">
+      <div class="vo-hero-copy" style="max-width:1180px;margin:0 auto;padding:20px 24px 0;text-align:left;">
         <h1 style="margin:0 0 12px;font-family:'Anton',sans-serif;font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:0.01em;text-transform:uppercase;color:#f4ead0;">
           La Fan Page <span style="color:#e8b923;">Vert et Or</span>
         </h1>
