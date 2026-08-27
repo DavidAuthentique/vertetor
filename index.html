@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;background:#0e2a1a;}
+    a{color:#e8b923;}
+    a:hover{color:#f5cf4d;}
+    ::selection{background:#e8b923;color:#0e2a1a;}
+    .voGrain{position:absolute;inset:0;opacity:0.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;}
+  </style>
+</helmet>
+<div style="font-family:'Archivo',sans-serif;background:#0e2a1a;min-height:100vh;color:#f4ead0;">
+
+  <section style="position:relative;height:100vh;overflow:hidden;background:#0a1f13;">
+    <video ref="{{ videoRef }}" src="https://d8j0ntlcm91z4.cloudfront.net/user_3DT2htyCp6A1GNlzF6OYheF1hrj/hf_20260827_180722_5a581d80-1dd3-457d-a4a3-dcd2fcc9a17e.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" onSeeked="{{ onSeeked }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,19,0.15) 0%,rgba(10,31,19,0.75) 100%);z-index:1;"></div>
+
+    <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;padding:28px 24px 0;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:36px;">
+        <span style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.03em;color:#f4ead0;">SÉMINAIRE ST-JOSEPH</span>
+        <h1 style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.03em;margin:0;text-transform:uppercase;color:#f4ead0;padding-left:14px;border-left:1px solid rgba(244,234,208,0.25);">
+          La Fan Page <span style="color:#e8b923;">Vert et Or</span>
+        </h1>
+      </div>
+      <div style="display:flex;gap:28px;font-size:15px;font-weight:600;">
+        <a href="#calendrier" style="text-decoration:none;color:#f4ead0;">Calendrier</a>
+        <a href="#sports" style="text-decoration:none;color:#f4ead0;">Sports</a>
+        <a href="#suivre" style="text-decoration:none;color:#f4ead0;">Nous suivre</a>
+      </div>
+    </nav>
+
+    <div style="position:relative;z-index:2;height:calc(100% - 80px);max-width:1180px;margin:0 auto;padding:0 24px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;padding-bottom:64px;">
+      <p style="font-size:17px;line-height:1.45;max-width:560px;color:#cfe0d2;margin:0 0 22px;">
+        Tous les matchs, tous les sports, une seule place. Le calendrier officiel des partisans du Séminaire Saint-Joseph — football, volleyball, basketball, hockey et plus encore.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+        <a href="#calendrier" style="display:inline-flex;align-items:center;justify-content:center;background:#e8b923;color:#0e2a1a;font-weight:800;font-size:15px;padding:14px 28px;border-radius:6px;text-decoration:none;">Voir le calendrier</a>
+        <a href="#suivre" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#f4ead0;font-weight:700;font-size:15px;padding:14px 28px;border:1px solid rgba(244,234,208,0.5);border-radius:6px;text-decoration:none;">Devenir partisan</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sports" style="max-width:1180px;margin:0 auto;padding:56px 24px 8px;">
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+      <sc-for list="{{ sportFilters }}" as="sport" hint-placeholder-count="6">
+        <button onClick="{{ sport.onClick }}" style="{{ sport.style }}">{{ sport.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="calendrier" style="max-width:1180px;margin:0 auto;padding:32px 24px 96px;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
+      <h2 style="font-family:'Anton',sans-serif;font-size:clamp(26px,4vw,38px);text-transform:uppercase;margin:0;color:#f4ead0;">Calendrier des matchs</h2>
+      <span style="font-size:14px;color:#cfe0d2;">*Dates fictives — à confirmer avec l'école</span>
+    </div>
+
+    <div style="display:grid;gap:16px;">
+      <sc-for list="{{ visibleGames }}" as="game" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:96px 1fr auto;gap:20px;align-items:center;background:#153a24;border:1px solid rgba(244,234,208,0.1);border-radius:10px;padding:20px 24px;">
+          <div style="text-align:center;border-right:1px solid rgba(244,234,208,0.15);padding-right:16px;">
+            <div style="font-family:'Anton',sans-serif;font-size:30px;color:#e8b923;line-height:1;">{{ game.day }}</div>
+            <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:#cfe0d2;margin-top:4px;">{{ game.month }}</div>
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap;">
+              <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;background:rgba(232,185,35,0.15);color:#e8b923;padding:3px 10px;border-radius:999px;">{{ game.sport }}</span>
+              <sc-if value="{{ game.isHome }}" hint-placeholder-val="{{ true }}">
+                <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#8fd19e;">Domicile</span>
+              </sc-if>
+              <sc-if value="{{ game.isAway }}" hint-placeholder-val="{{ false }}">
+                <span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#cfe0d2;">Visiteur</span>
+              </sc-if>
+            </div>
+            <div style="font-size:19px;font-weight:700;color:#f4ead0;">Vert et Or <span style="color:#cfe0d2;font-weight:500;">vs</span> {{ game.opponent }}</div>
+            <div style="font-size:14px;color:#a9c2ac;margin-top:4px;">{{ game.location }}</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;color:#f4ead0;">{{ game.time }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="suivre" style="background:#0a1f13;padding:56px 24px;text-align:center;">
+    <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:64px;margin-bottom:20px;">
+    <h3 style="font-family:'Anton',sans-serif;font-size:clamp(22px,3vw,30px);text-transform:uppercase;color:#f4ead0;margin:0 0 12px;">Un seul but : partisan à 100%</h3>
+    <p style="font-size:15px;color:#a9c2ac;max-width:520px;margin:0 auto 8px;">Le calendrier ultime pour ne manquer aucun match du Vert et Or.</p>
+    <p style="font-size:13px;color:#7f9a84;margin:0;">Page conçue par Billy Gélinas.</p>
+  </section>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const SPORTS = ["Tous", "Football", "Volleyball", "Basketball", "Hockey", "Cheerleading"];
+
+const GAMES = [
+  { day: "12", month: "Sept", sport: "Football", opponent: "Collège de L'Assomption", location: "Stade municipal, domicile", time: "19h00", isHome: true },
+  { day: "19", month: "Sept", sport: "Volleyball", opponent: "Collège Jean-de-Brébeuf", location: "Gymnase principal, domicile", time: "18h30", isHome: true },
+  { day: "26", month: "Sept", sport: "Football", opponent: "Académie Antoine-Manseau", location: "Terrain adverse, visiteur", time: "13h00", isHome: false },
+  { day: "03", month: "Oct", sport: "Basketball", opponent: "Collège St-Maurice", location: "Gymnase principal, domicile", time: "19h00", isHome: true },
+  { day: "10", month: "Oct", sport: "Football", opponent: "Séminaire de Sherbrooke", location: "Stade municipal, domicile", time: "19h00", isHome: true },
+  { day: "17", month: "Oct", sport: "Volleyball", opponent: "Collège Notre-Dame", location: "Gymnase adverse, visiteur", time: "18h00", isHome: false },
+  { day: "24", month: "Oct", sport: "Hockey", opponent: "Académie Lafontaine", location: "Aréna municipal, domicile", time: "20h00", isHome: true },
+  { day: "31", month: "Oct", sport: "Basketball", opponent: "Collège Regina Assumpta", location: "Gymnase adverse, visiteur", time: "19h30", isHome: false },
+  { day: "07", month: "Nov", sport: "Football", opponent: "Collège de L'Assomption", location: "Terrain adverse, visiteur", time: "13h00", isHome: false },
+  { day: "14", month: "Nov", sport: "Cheerleading", opponent: "Compétition régionale", location: "Centre sportif, domicile", time: "10h00", isHome: true },
+  { day: "21", month: "Nov", sport: "Hockey", opponent: "Collège St-Maurice", location: "Aréna adverse, visiteur", time: "19h45", isHome: false },
+  { day: "28", month: "Nov", sport: "Basketball", opponent: "Séminaire de Sherbrooke", location: "Gymnase principal, domicile", time: "19h00", isHome: true }
+];
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { filter: "Tous" };
+    this.videoRef = React.createRef();
+    this.prevX = null;
+    this.targetTime = 0;
+    this.seeking = false;
+  }
+
+  componentDidMount() {
+    window.addEventListener('mousemove', this.handleMouseMove);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.handleMouseMove);
+  }
+
+  handleMouseMove = (e) => {
+    const video = this.videoRef.current;
+    if (this.prevX == null) { this.prevX = e.clientX; return; }
+    const delta = e.clientX - this.prevX;
+    this.prevX = e.clientX;
+    if (!video || !video.duration || isNaN(video.duration)) return;
+    const SENSITIVITY = 0.8;
+    const offset = (-delta / window.innerWidth) * SENSITIVITY * video.duration;
+    const base = this.seeking ? this.targetTime : video.currentTime;
+    let target = base + offset;
+    target = Math.max(0, Math.min(video.duration, target));
+    this.targetTime = target;
+    if (!this.seeking) {
+      this.seeking = true;
+      video.currentTime = this.targetTime;
+    }
+  };
+
+  onSeeked = () => {
+    const video = this.videoRef.current;
+    if (!video) return;
+    if (Math.abs(video.currentTime - this.targetTime) > 0.01) {
+      video.currentTime = this.targetTime;
+    } else {
+      this.seeking = false;
+    }
+  };
+
+  setFilter = (s) => this.setState({ filter: s });
+
+  renderVals() {
+    const filter = this.state.filter;
+    const visibleGames = (filter === "Tous" ? GAMES : GAMES.filter((g) => g.sport === filter)).map((g) => ({
+      ...g,
+      isAway: !g.isHome
+    }));
+
+    const sportFilters = SPORTS.map((s) => {
+      const active = s === filter;
+      return {
+        label: s,
+        onClick: () => this.setFilter(s),
+        style: {
+          fontFamily: "'Archivo',sans-serif",
+          fontWeight: 700,
+          fontSize: "14px",
+          padding: "10px 20px",
+          borderRadius: "999px",
+          border: active ? "1px solid #e8b923" : "1px solid rgba(244,234,208,0.2)",
+          background: active ? "#e8b923" : "transparent",
+          color: active ? "#0e2a1a" : "#f4ead0",
+          cursor: "pointer",
+          transition: "background 0.15s, color 0.15s"
+        }
+      };
+    });
+
+    return { sportFilters, visibleGames, videoRef: this.videoRef, onSeeked: this.onSeeked };
+  }
+}
+</script>
+</body>
+</html>
