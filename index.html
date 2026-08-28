@@ -32,10 +32,10 @@
 </helmet>
 <div style="font-family:'Archivo',sans-serif;background:#0e2a1a;min-height:100vh;color:#f4ead0;">
 
-  <section ref="{{ scrubTrackRef }}" style="position:relative;height:300vh;background:#0a1f13;">
-    <div style="position:sticky;top:0;height:100vh;overflow:hidden;">
-      <video ref="{{ videoRef }}" src="https://d8j0ntlcm91z4.cloudfront.net/user_3DT2htyCp6A1GNlzF6OYheF1hrj/hf_20260827_180722_5a581d80-1dd3-457d-a4a3-dcd2fcc9a17e.mp4" muted="{{ true }}" playsInline="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,19,0.15) 0%,rgba(10,31,19,0.75) 100%);z-index:1;"></div>
+  <section style="position:relative;height:100vh;background:#0a1f13;">
+    <div style="position:relative;height:100vh;overflow:hidden;">
+      <video ref="{{ videoRef }}" src="assets/video/hero-boomerang-1080.mp4" data-src-mobile="assets/video/hero-boomerang-720.mp4" muted="{{ true }}" playsInline="{{ true }}" autoPlay="{{ true }}" loop="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,19,0) 0%,rgba(10,31,19,0) 45%,rgba(10,31,19,0.62) 100%);z-index:1;"></div>
 
       <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;padding:28px 24px 0;">
         <div style="display:flex;align-items:center;gap:14px;">
@@ -150,48 +150,41 @@ class Component extends DCLogic {
     super(props);
     this.state = { filter: "Tous", menuOpen: false };
     this.videoRef = React.createRef();
-    this.scrubTrackRef = React.createRef();
-    this.rafId = null;
-    this.targetTime = 0;
   }
 
   toggleMenu = () => this.setState((s) => ({ menuOpen: !s.menuOpen }));
 
   componentDidMount() {
-    window.addEventListener('scroll', this.updateTarget, { passive: true });
-    this.updateTarget();
-    this.rafId = requestAnimationFrame(this.tick);
+    const v = this.videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.loop = true;
+    this.desktopSrc = v.getAttribute('src');
+    this.mobileSrc = v.getAttribute('data-src-mobile');
+    if (this.mobileSrc && window.matchMedia) {
+      this.mq = window.matchMedia('(max-width: 820px)');
+      this.applySrc();
+      if (this.mq.addEventListener) this.mq.addEventListener('change', this.applySrc);
+      else if (this.mq.addListener) this.mq.addListener(this.applySrc);
+    }
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.updateTarget);
-    if (this.rafId) cancelAnimationFrame(this.rafId);
+    if (!this.mq) return;
+    if (this.mq.removeEventListener) this.mq.removeEventListener('change', this.applySrc);
+    else if (this.mq.removeListener) this.mq.removeListener(this.applySrc);
   }
 
-  updateTarget = () => {
-    const video = this.videoRef.current;
-    const track = this.scrubTrackRef.current;
-    if (!video || !track || !video.duration || isNaN(video.duration)) return;
-    const rect = track.getBoundingClientRect();
-    const scrollable = rect.height - window.innerHeight;
-    if (scrollable <= 0) return;
-    const progress = Math.max(0, Math.min(1, -rect.top / scrollable));
-    this.targetTime = progress * video.duration;
-  };
-
-  tick = () => {
-    this.updateTarget();
-    const video = this.videoRef.current;
-    if (video && video.duration && !isNaN(video.duration) && !video.seeking && video.readyState >= 2) {
-      const diff = this.targetTime - video.currentTime;
-      const absDiff = Math.abs(diff);
-      if (absDiff > 0.004) {
-        const factor = Math.min(0.35, Math.max(0.12, absDiff * 2));
-        const next = video.currentTime + diff * factor;
-        video.currentTime = Math.max(0, Math.min(video.duration, next));
-      }
-    }
-    this.rafId = requestAnimationFrame(this.tick);
+  applySrc = () => {
+    const v = this.videoRef.current;
+    if (!v || !this.mq) return;
+    const wanted = this.mq.matches ? this.mobileSrc : this.desktopSrc;
+    if (!wanted || v.src === wanted) return;
+    v.src = wanted;
+    const p = v.play();
+    if (p && p.catch) p.catch(() => {});
   };
 
   setFilter = (s) => this.setState({ filter: s });
@@ -229,7 +222,7 @@ class Component extends DCLogic {
       background: 'rgba(10,31,19,0.92)', borderRadius: '10px', marginTop: '8px'
     };
 
-    return { sportFilters, visibleGames, videoRef: this.videoRef, scrubTrackRef: this.scrubTrackRef, toggleMenu: this.toggleMenu, mobileAccordionStyle };
+    return { sportFilters, visibleGames, videoRef: this.videoRef, toggleMenu: this.toggleMenu, mobileAccordionStyle };
   }
 }
 </script>
