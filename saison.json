@@ -1,0 +1,18 @@
+{
+  "_mode_emploi": "Après chaque match, remplace null par \"vertetor\" si le Vert et Or a gagné, ou \"adversaire\" s'il a perdu. Laisse null si le match n'est pas joué. Le pointage des partisans se calcule automatiquement.",
+  "saison": "2025-2026",
+  "matchs": [
+    { "id": "g01", "day": "12", "month": "Sept", "sport": "Football", "opponent": "Collège de L'Assomption", "isHome": true, "time": "19h00", "resultat": null },
+    { "id": "g02", "day": "19", "month": "Sept", "sport": "Volleyball", "opponent": "Collège Jean-de-Brébeuf", "isHome": true, "time": "18h30", "resultat": null },
+    { "id": "g03", "day": "26", "month": "Sept", "sport": "Football", "opponent": "Académie Antoine-Manseau", "isHome": false, "time": "13h00", "resultat": null },
+    { "id": "g04", "day": "03", "month": "Oct", "sport": "Basketball", "opponent": "Collège St-Maurice", "isHome": true, "time": "19h00", "resultat": null },
+    { "id": "g05", "day": "10", "month": "Oct", "sport": "Football", "opponent": "Séminaire de Sherbrooke", "isHome": true, "time": "19h00", "resultat": null },
+    { "id": "g06", "day": "17", "month": "Oct", "sport": "Volleyball", "opponent": "Collège Notre-Dame", "isHome": false, "time": "18h00", "resultat": null },
+    { "id": "g07", "day": "24", "month": "Oct", "sport": "Hockey", "opponent": "Académie Lafontaine", "isHome": true, "time": "20h00", "resultat": null },
+    { "id": "g08", "day": "31", "month": "Oct", "sport": "Basketball", "opponent": "Collège Regina Assumpta", "isHome": false, "time": "19h30", "resultat": null },
+    { "id": "g09", "day": "07", "month": "Nov", "sport": "Football", "opponent": "Collège de L'Assomption", "isHome": false, "time": "13h00", "resultat": null },
+    { "id": "g10", "day": "14", "month": "Nov", "sport": "Flag football", "opponent": "Tournoi régional", "isHome": true, "time": "10h00", "resultat": null },
+    { "id": "g11", "day": "21", "month": "Nov", "sport": "Hockey", "opponent": "Collège St-Maurice", "isHome": false, "time": "19h45", "resultat": null },
+    { "id": "g12", "day": "28", "month": "Nov", "sport": "Basketball", "opponent": "Séminaire de Sherbrooke", "isHome": true, "time": "19h00", "resultat": null }
+  ]
+}

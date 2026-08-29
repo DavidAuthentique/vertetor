@@ -49,20 +49,29 @@
 </helmet>
 <div style="font-family:'Archivo',sans-serif;background:#0e2a1a;min-height:100vh;color:#f4ead0;">
 
-  <section style="position:relative;height:100vh;background:#0a1f13;">
+  <section style="position:relative;height:100vh;background:#384633;">
     <div style="position:relative;height:100vh;overflow:hidden;">
       <video ref="{{ videoRef }}" src="assets/video/hero-chipmunk-1080.mp4" data-src-mobile="assets/video/hero-chipmunk-1080.mp4" muted="{{ true }}" playsInline="{{ true }}" autoPlay="{{ true }}" loop="{{ true }}" preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
-      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,19,0) 0%,rgba(10,31,19,0) 45%,rgba(10,31,19,0.62) 100%);z-index:1;"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(56,70,51,0) 0%,rgba(56,70,51,0) 42%,rgba(46,58,42,0.55) 80%,rgba(56,70,51,0.92) 97%,#384633 100%);z-index:1;"></div>
 
       <nav style="position:relative;z-index:2;display:flex;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;padding:28px 24px 0;">
-        <div style="display:flex;align-items:center;gap:14px;">
+        <a href="{{ homeHref }}" aria-label="Retour à l'accueil" style="display:flex;align-items:center;gap:14px;text-decoration:none;color:#f4ead0;" style-hover="color:#e8b923;">
           <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:36px;">
-          <span style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.03em;color:#f4ead0;">SÉMINAIRE ST-JOSEPH</span>
-        </div>
+          <span style="font-family:'Anton',sans-serif;font-size:20px;letter-spacing:0.03em;">SÉMINAIRE ST-JOSEPH</span>
+        </a>
         <div class="vo-nav-links">
           <a href="#calendrier" style="text-decoration:none;color:#f4ead0;">Calendrier</a>
           <a href="#sports" style="text-decoration:none;color:#f4ead0;">Sports</a>
+          <a href="{{ boutiqueHref }}" style="text-decoration:none;color:#f4ead0;">Boutique</a>
           <a href="#suivre" style="text-decoration:none;color:#f4ead0;">Nous suivre</a>
+          <a href="https://www.facebook.com/VertetOrSSJ" target="_blank" rel="noopener" title="Facebook des équipes Vert et Or" style="display:inline-flex;align-items:center;gap:6px;color:#f4ead0;text-decoration:none;" style-hover="color:#e8b923;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14.5 21v-7.2h2.6l.4-3h-3v-1.9c0-.9.3-1.5 1.5-1.5h1.6V4.7c-.3 0-1.3-.1-2.4-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.5v3h2.3V21h3.7z"></path></svg>
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Vert et Or</span>
+          </a>
+          <a href="https://www.facebook.com/SeminaireSaintJoseph" target="_blank" rel="noopener" title="Facebook du Séminaire Saint-Joseph" style="display:inline-flex;align-items:center;gap:6px;color:#f4ead0;text-decoration:none;" style-hover="color:#e8b923;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M14.5 21v-7.2h2.6l.4-3h-3v-1.9c0-.9.3-1.5 1.5-1.5h1.6V4.7c-.3 0-1.3-.1-2.4-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.5v3h2.3V21h3.7z"></path></svg>
+            <span style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">SSJ</span>
+          </a>
         </div>
         <button type="button" onClick="{{ toggleMenu }}" class="vo-hamburger" style="position:relative;z-index:5;flex-direction:column;justify-content:center;gap:6px;background:none;border:none;padding:10px;cursor:pointer;touch-action:manipulation;">
           <span style="width:24px;height:2px;background:#f4ead0;display:block;"></span>
@@ -74,7 +83,16 @@
       <div style="{{ mobileAccordionStyle }}">
         <a href="#calendrier" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">Calendrier</a>
         <a href="#sports" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">Sports</a>
-        <a href="#suivre" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;">Nous suivre</a>
+        <a href="{{ boutiqueHref }}" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">Boutique</a>
+        <a href="#suivre" onClick="{{ toggleMenu }}" style="text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">Nous suivre</a>
+        <a href="https://www.facebook.com/VertetOrSSJ" target="_blank" rel="noopener" onClick="{{ toggleMenu }}" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M14.5 21v-7.2h2.6l.4-3h-3v-1.9c0-.9.3-1.5 1.5-1.5h1.6V4.7c-.3 0-1.3-.1-2.4-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.5v3h2.3V21h3.7z"></path></svg>
+          Facebook des équipes
+        </a>
+        <a href="https://www.facebook.com/SeminaireSaintJoseph" target="_blank" rel="noopener" onClick="{{ toggleMenu }}" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#f4ead0;font-size:17px;font-weight:600;padding:14px 24px;">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M14.5 21v-7.2h2.6l.4-3h-3v-1.9c0-.9.3-1.5 1.5-1.5h1.6V4.7c-.3 0-1.3-.1-2.4-.1-2.3 0-3.9 1.4-3.9 4v2.2H8.5v3h2.3V21h3.7z"></path></svg>
+          Facebook de l'école
+        </a>
       </div>
 
       <div class="vo-hero-copy" style="max-width:1180px;margin:0 auto;padding:0 24px;text-align:left;">
@@ -86,19 +104,21 @@
         </p>
         <div class="vo-cta-row" style="justify-content:flex-start;">
           <a href="#calendrier" style="display:inline-flex;align-items:center;justify-content:center;background:#e8b923;color:#0e2a1a;font-weight:800;font-size:15px;padding:14px 24px;border-radius:6px;text-decoration:none;white-space:nowrap;">Voir le calendrier</a>
-          <a href="#suivre" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#f4ead0;font-weight:700;font-size:15px;padding:14px 24px;border:1px solid rgba(244,234,208,0.5);border-radius:6px;text-decoration:none;white-space:nowrap;">Devenir partisan</a>
+          <a href="{{ partisanHref }}" style="display:inline-flex;align-items:center;justify-content:center;background:transparent;color:#f4ead0;font-weight:700;font-size:15px;padding:14px 24px;border:1px solid rgba(244,234,208,0.5);border-radius:6px;text-decoration:none;white-space:nowrap;">Devenir partisan</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="sports" style="max-width:1180px;margin:0 auto;padding:56px 24px 8px;">
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-      <sc-for list="{{ sportFilters }}" as="sport" hint-placeholder-count="6">
-        <button onClick="{{ sport.onClick }}" style="{{ sport.style }}">{{ sport.label }}</button>
-      </sc-for>
-    </div>
-  </section>
+  <div style="background:linear-gradient(180deg,#384633 0%,#2c3d28 40%,#1a3320 72%,#0e2a1a 100%);">
+    <section id="sports" style="max-width:1180px;margin:0 auto;padding:72px 24px 40px;">
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+        <sc-for list="{{ sportFilters }}" as="sport" hint-placeholder-count="6">
+          <button onClick="{{ sport.onClick }}" style="{{ sport.style }}">{{ sport.label }}</button>
+        </sc-for>
+      </div>
+    </section>
+  </div>
 
   <section id="calendrier" style="max-width:1180px;margin:0 auto;padding:32px 24px 96px;">
     <div style="display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:28px;">
@@ -138,14 +158,14 @@
     <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:64px;margin-bottom:20px;">
     <h3 style="font-family:'Anton',sans-serif;font-size:clamp(22px,3vw,30px);text-transform:uppercase;color:#f4ead0;margin:0 0 12px;">Un seul but : partisan à 100%</h3>
     <p style="font-size:15px;color:#a9c2ac;max-width:520px;margin:0 auto 8px;">Le calendrier ultime pour ne manquer aucun match du Vert et Or.</p>
-    <p style="font-size:13px;color:#7f9a84;margin:0;">Page conçue par Billy Gélinas.</p>
+    <p style="font-size:13px;color:#7f9a84;margin:0;">Page conçue par Billy Gélinas, éleve du Séminaire Saint-Joseph</p>
   </section>
 
 </div>
 
 </x-dc>
 <script type="text/x-dc" data-dc-script>
-const SPORTS = ["Tous", "Football", "Volleyball", "Basketball", "Hockey", "Cheerleading"];
+const SPORTS = ["Tous", "Football", "Volleyball", "Basketball", "Hockey", "Flag football"];
 
 const GAMES = [
   { day: "12", month: "Sept", sport: "Football", opponent: "Collège de L'Assomption", location: "Stade municipal, domicile", time: "19h00", isHome: true },
@@ -157,7 +177,7 @@ const GAMES = [
   { day: "24", month: "Oct", sport: "Hockey", opponent: "Académie Lafontaine", location: "Aréna municipal, domicile", time: "20h00", isHome: true },
   { day: "31", month: "Oct", sport: "Basketball", opponent: "Collège Regina Assumpta", location: "Gymnase adverse, visiteur", time: "19h30", isHome: false },
   { day: "07", month: "Nov", sport: "Football", opponent: "Collège de L'Assomption", location: "Terrain adverse, visiteur", time: "13h00", isHome: false },
-  { day: "14", month: "Nov", sport: "Cheerleading", opponent: "Compétition régionale", location: "Centre sportif, domicile", time: "10h00", isHome: true },
+  { day: "14", month: "Nov", sport: "Flag football", opponent: "Tournoi régional", location: "Terrain synthétique, domicile", time: "10h00", isHome: true },
   { day: "21", month: "Nov", sport: "Hockey", opponent: "Collège St-Maurice", location: "Aréna adverse, visiteur", time: "19h45", isHome: false },
   { day: "28", month: "Nov", sport: "Basketball", opponent: "Séminaire de Sherbrooke", location: "Gymnase principal, domicile", time: "19h00", isHome: true }
 ];
@@ -175,6 +195,9 @@ class Component extends DCLogic {
     const v = this.videoRef.current;
     if (!v) return;
     v.muted = true;
+    v.defaultMuted = true;
+    v.volume = 0;
+    v.removeAttribute('controls');
     v.loop = true;
     this.desktopSrc = v.getAttribute('src');
     this.mobileSrc = v.getAttribute('data-src-mobile');
@@ -239,7 +262,12 @@ class Component extends DCLogic {
       background: 'rgba(10,31,19,0.92)', borderRadius: '10px', marginTop: '8px'
     };
 
-    return { sportFilters, visibleGames, videoRef: this.videoRef, toggleMenu: this.toggleMenu, mobileAccordionStyle };
+    const isDoc = typeof location !== "undefined" && /\.dc\.html$/.test(location.pathname);
+    const boutiqueHref = isDoc ? "Boutique%20Vert%20et%20Or.dc.html" : "boutique.html";
+    const homeHref = isDoc ? "Calendrier%20Vert%20et%20Or.dc.html" : "index.html";
+    const partisanHref = isDoc ? "Partisan%20Vert%20et%20Or.dc.html" : "partisan.html";
+
+    return { sportFilters, visibleGames, videoRef: this.videoRef, toggleMenu: this.toggleMenu, mobileAccordionStyle, boutiqueHref, homeHref, partisanHref };
   }
 }
 </script>

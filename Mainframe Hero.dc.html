@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium" />
+  <link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg" />
+  <style>
+    :root{--font-heading:'HelveticaNowDisplay-Medium','Helvetica Neue',Arial,sans-serif;--font-body:'HelveticaNowDisplayW01-Rg','Helvetica Neue',Arial,sans-serif;}
+    body{margin:0;font-family:var(--font-body);background:#000;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .mf-hamburger{display:flex;}
+    @media (min-width:768px){
+      .mf-desktop-nav{display:flex !important;align-items:center;}
+      .mf-desktop-cta{display:inline-block !important;}
+      .mf-hamburger{display:none !important;}
+      nav{padding:20px 32px !important;}
+      .mf-hero{justify-content:center !important;padding-bottom:0 !important;padding-left:40px !important;padding-right:40px !important;}
+    }
+    @media (min-width:640px){
+      nav{padding:20px 32px;}
+      .mf-hero{padding-left:32px;padding-right:32px;}
+    }
+  </style>
+</helmet>
+<div style="position:relative;min-height:100vh;width:100%;overflow:hidden;background:#000;">
+
+  <video
+    ref="{{ videoRef }}"
+    src="https://d8j0ntlcm91z4.cloudfront.net/user_3DT2htyCp6A1GNlzF6OYheF1hrj/hf_20260827_180722_5a581d80-1dd3-457d-a4a3-dcd2fcc9a17e.mp4"
+    muted="{{ true }}"
+    playsInline="{{ true }}"
+    preload="auto"
+    onSeeked="{{ onSeeked }}"
+    style="position:fixed;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;z-index:0;"
+  ></video>
+
+  <nav style="position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:20px 20px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span style="font-family:var(--font-heading);color:#fff;font-size:21px;letter-spacing:-0.02em;">Mainframe&reg;</span>
+      <span style="color:#fff;font-size:25px;letter-spacing:-0.02em;user-select:none;">&#10035;&#65038;</span>
+    </div>
+
+    <div style="display:none;font-size:23px;color:#fff;" class="mf-desktop-nav">
+      <a href="#" style="color:#fff;text-decoration:none;" style-hover="opacity:0.6;">Labs</a>,&nbsp;
+      <a href="#" style="color:#fff;text-decoration:none;" style-hover="opacity:0.6;">Studio</a>,&nbsp;
+      <a href="#" style="color:#fff;text-decoration:none;" style-hover="opacity:0.6;">Openings</a>,&nbsp;
+      <a href="#" style="color:#fff;text-decoration:none;" style-hover="opacity:0.6;">Shop</a>
+    </div>
+
+    <a href="mailto:hello@mainframe.co" style="display:none;color:#fff;font-size:23px;text-decoration:underline;text-underline-offset:2px;transition:opacity 0.2s;" style-hover="opacity:0.6;" class="mf-desktop-cta">Get in touch</a>
+
+    <button onClick="{{ toggleMenu }}" style="display:flex;flex-direction:column;gap:5px;background:none;border:none;padding:8px;cursor:pointer;" class="mf-hamburger" aria-label="Menu">
+      <span style="{{ barTopStyle }}"></span>
+      <span style="{{ barMidStyle }}"></span>
+      <span style="{{ barBotStyle }}"></span>
+    </button>
+  </nav>
+
+  <div style="{{ overlayStyle }}">
+    <a href="#" onClick="{{ toggleMenu }}" style="color:#fff;font-size:32px;font-weight:500;text-decoration:none;">Labs</a>
+    <a href="#" onClick="{{ toggleMenu }}" style="color:#fff;font-size:32px;font-weight:500;text-decoration:none;">Studio</a>
+    <a href="#" onClick="{{ toggleMenu }}" style="color:#fff;font-size:32px;font-weight:500;text-decoration:none;">Openings</a>
+    <a href="#" onClick="{{ toggleMenu }}" style="color:#fff;font-size:32px;font-weight:500;text-decoration:none;">Shop</a>
+    <a href="mailto:hello@mainframe.co" style="color:#fff;font-size:32px;text-decoration:underline;">Get in touch</a>
+  </div>
+
+  <section style="position:relative;z-index:1;height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 20px 48px;overflow:hidden;" class="mf-hero">
+    <div style="max-width:576px;position:relative;z-index:10;">
+
+      <div style="pointer-events:none;user-select:none;margin-bottom:20px;font-size:clamp(18px,4vw,26px);line-height:1.3;font-weight:400;color:#fff;filter:blur(4px);">
+        Hey there, meet A.R.I.A,<br />Mainframe's Adaptive Response Interface Agent
+      </div>
+
+      <p style="color:#fff;margin:0 0 20px 0;font-size:clamp(18px,4vw,26px);line-height:1.35;font-weight:400;min-height:54px;">
+        {{ displayed }}<sc-if value="{{ showCursor }}"><span style="display:inline-block;width:2px;height:1.1em;background:#fff;vertical-align:middle;margin-left:2px;animation:blink 1s step-end infinite;"></span></sc-if>
+      </p>
+
+      <div style="{{ pillsStyle }}">
+        <div style="display:flex;flex-wrap:wrap;row-gap:4px;">
+          <button style="display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;border:1px solid rgba(0,0,0,0.1);border-radius:999px;font-size:15px;padding:0.3em 20px;margin:0 3px 6px 3px;white-space:nowrap;cursor:pointer;transition:background-color 0.2s,color 0.2s;font-family:var(--font-body);" style-hover="background:#000;color:#fff;">Pitch us an idea</button>
+          <button style="display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;border:1px solid rgba(0,0,0,0.1);border-radius:999px;font-size:15px;padding:0.3em 20px;margin:0 3px 6px 3px;white-space:nowrap;cursor:pointer;transition:background-color 0.2s,color 0.2s;font-family:var(--font-body);" style-hover="background:#000;color:#fff;">Come work here</button>
+          <button style="display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;border:1px solid rgba(0,0,0,0.1);border-radius:999px;font-size:15px;padding:0.3em 20px;margin:0 3px 6px 3px;white-space:nowrap;cursor:pointer;transition:background-color 0.2s,color 0.2s;font-family:var(--font-body);" style-hover="background:#000;color:#fff;">Send a brief hello</button>
+          <button style="display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;border:1px solid rgba(0,0,0,0.1);border-radius:999px;font-size:15px;padding:0.3em 20px;margin:0 3px 6px 3px;white-space:nowrap;cursor:pointer;transition:background-color 0.2s,color 0.2s;font-family:var(--font-body);" style-hover="background:#000;color:#fff;">See how we operate</button>
+          <button onClick="{{ copyEmail }}" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#fff;border:1px solid #fff;border-radius:999px;font-size:15px;padding:0.3em 20px;margin:0 3px 6px 3px;white-space:nowrap;cursor:pointer;transition:background-color 0.2s,color 0.2s;font-family:var(--font-body);" style-hover="background:#fff;color:#000;">
+            <span>Reach us: <span style="text-decoration:underline;text-underline-offset:1px;">hello@mainframe.co</span></span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="1" width="7" height="7" stroke="currentColor" stroke-width="1"></rect>
+              <rect x="4" y="4" width="7" height="7" stroke="currentColor" stroke-width="1"></rect>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { menuOpen: false, displayed: '', typeDone: false, pillsVisible: false, barsInit: true };
+    this.videoRef = React.createRef();
+    this.prevX = null;
+    this.targetTime = 0;
+    this.seeking = false;
+    this.fullText = "Glad you stopped in. Good taste tends to find us. Now, what are we building?";
+  }
+
+  componentDidMount() {
+    window.addEventListener('mousemove', this.handleMouseMove);
+    this._pillTimer = setTimeout(() => this.setState({ pillsVisible: true }), 400);
+    this._typeStart = setTimeout(() => {
+      let i = 0;
+      this._typeInterval = setInterval(() => {
+        i++;
+        this.setState({ displayed: this.fullText.slice(0, i) });
+        if (i >= this.fullText.length) {
+          clearInterval(this._typeInterval);
+          this.setState({ typeDone: true });
+        }
+      }, 38);
+    }, 600);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousemove', this.handleMouseMove);
+    clearTimeout(this._pillTimer);
+    clearTimeout(this._typeStart);
+    clearInterval(this._typeInterval);
+  }
+
+  handleMouseMove = (e) => {
+    const video = this.videoRef.current;
+    if (this.prevX == null) { this.prevX = e.clientX; return; }
+    const delta = e.clientX - this.prevX;
+    this.prevX = e.clientX;
+    if (!video || !video.duration || isNaN(video.duration)) return;
+    const SENSITIVITY = 0.8;
+    const offset = (-delta / window.innerWidth) * SENSITIVITY * video.duration;
+    const base = this.seeking ? this.targetTime : video.currentTime;
+    let target = base + offset;
+    target = Math.max(0, Math.min(video.duration, target));
+    this.targetTime = target;
+    if (!this.seeking) {
+      this.seeking = true;
+      video.currentTime = this.targetTime;
+    }
+  };
+
+  onSeeked = () => {
+    const video = this.videoRef.current;
+    if (!video) return;
+    if (Math.abs(video.currentTime - this.targetTime) > 0.01) {
+      video.currentTime = this.targetTime;
+    } else {
+      this.seeking = false;
+    }
+  };
+
+  toggleMenu = () => this.setState((s) => ({ menuOpen: !s.menuOpen }));
+
+  copyEmail = () => {
+    if (navigator.clipboard) navigator.clipboard.writeText('hello@mainframe.co');
+  };
+
+  renderVals() {
+    const open = this.state.menuOpen;
+    return {
+      videoRef: this.videoRef,
+      onSeeked: this.onSeeked,
+      toggleMenu: this.toggleMenu,
+      copyEmail: this.copyEmail,
+      displayed: this.state.displayed,
+      showCursor: !this.state.typeDone,
+      pillsStyle: {
+        opacity: this.state.pillsVisible ? 1 : 0,
+        transform: this.state.pillsVisible ? 'translateY(0)' : 'translateY(8px)',
+        transition: 'opacity 0.4s ease, transform 0.4s ease'
+      },
+      overlayStyle: {
+        position: 'fixed', inset: 0, zIndex: 9,
+        background: 'rgba(0,0,0,0.9)', backdropFilter: 'blur(12px)',
+        display: 'flex', flexDirection: 'column', justifyContent: 'center',
+        alignItems: 'flex-start', padding: '0 32px', gap: '32px',
+        opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none',
+        transition: 'opacity 0.3s ease'
+      },
+      barTopStyle: {
+        width: '24px', height: '2px', background: '#fff', transition: 'transform 0.3s',
+        transform: open ? 'translateY(7px) rotate(45deg)' : 'none'
+      },
+      barMidStyle: {
+        width: '24px', height: '2px', background: '#fff', transition: 'opacity 0.3s',
+        opacity: open ? 0 : 1
+      },
+      barBotStyle: {
+        width: '24px', height: '2px', background: '#fff', transition: 'transform 0.3s',
+        transform: open ? 'translateY(-7px) rotate(-45deg)' : 'none'
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
