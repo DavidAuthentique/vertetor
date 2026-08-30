@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boutique | Vert et Or du Séminaire Saint-Joseph</title>
+<meta name="description" content="Chandails, hoodies, tasses et souvenirs du Vert et Or. Porte les couleurs du Séminaire Saint-Joseph.">
+<meta name="theme-color" content="#0a1f13">
+<link rel="canonical" href="https://davidauthentique.github.io/vertetor/boutique.dc.html">
+<link rel="icon" type="image/png" href="assets/favicon-vo.png">
+<link rel="apple-touch-icon" href="assets/favicon-vo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vert et Or">
+<meta property="og:title" content="Boutique | Vert et Or du Séminaire Saint-Joseph">
+<meta property="og:description" content="Chandails, hoodies, tasses et souvenirs du Vert et Or.">
+<meta property="og:url" content="https://davidauthentique.github.io/vertetor/boutique.dc.html">
+<meta property="og:image" content="https://davidauthentique.github.io/vertetor/assets/logo-vert-et-or.png">
+<meta property="og:locale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Boutique | Vert et Or">
+<meta name="twitter:description" content="Chandails, hoodies, tasses et souvenirs du Vert et Or.">
+<meta name="twitter:image" content="https://davidauthentique.github.io/vertetor/assets/logo-vert-et-or.png">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="icon" type="image/png" href="assets/favicon-vo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <script src="./image-slot.js"></script>
+  <style>
+    body{margin:0;background:#0e2a1a;}
+    a{color:#e8b923;}
+    a:hover{color:#f5cf4d;}
+    ::selection{background:#e8b923;color:#0e2a1a;}
+    .vo-nav-links{display:flex;gap:26px;align-items:center;font-size:15px;font-weight:600;}
+    .vo-hamburger{display:none;}
+    .vo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+    .vo-shop-head{display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:end;}
+    @media (max-width:860px){
+      .vo-shop-head{grid-template-columns:1fr;gap:28px;align-items:start;}
+    }
+    @media (max-width:640px){
+      .vo-nav-links{display:none;}
+      .vo-hamburger{display:flex;}
+      .vo-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;}
+    }
+  </style>
+</helmet>
+<div style="font-family:'Archivo',sans-serif;background:#0e2a1a;min-height:100vh;color:#f4ead0;">
+
+  <nav style="position:relative;z-index:4;background:#0a1f13;border-bottom:1px solid rgba(244,234,208,0.1);">
+    <div style="display:flex;justify-content:space-between;align-items:center;max-width:1180px;margin:0 auto;padding:18px 24px;">
+      <a href="{{ calendarHref }}" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+        <span style="display:inline-flex;align-items:center;justify-content:center;background:#f4ead0;border-radius:6px;padding:5px 7px;">
+          <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:32px;display:block;">
+        </span>
+        <span style="font-family:'Anton',sans-serif;font-size:19px;letter-spacing:0.03em;color:#f4ead0;">VERT ET OR</span>
+      </a>
+      <div class="vo-nav-links">
+        <a href="{{ calendarHref }}" style="text-decoration:none;color:#f4ead0;">Calendrier</a>
+        <a href="#boutique" style="text-decoration:none;color:#e8b923;">Boutique</a>
+        <a href="#commander" style="text-decoration:none;color:#f4ead0;">Commander</a>
+        <button type="button" onClick="{{ toggleCart }}" style="display:inline-flex;align-items:center;gap:8px;background:#e8b923;color:#0e2a1a;border:none;font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;padding:10px 16px;border-radius:6px;cursor:pointer;">
+          Panier
+          <span style="{{ cartPillStyle }}">{{ cartCount }}</span>
+        </button>
+      </div>
+      <button type="button" onClick="{{ toggleCart }}" class="vo-hamburger" style="align-items:center;gap:8px;background:#e8b923;color:#0e2a1a;border:none;font-family:'Archivo',sans-serif;font-weight:800;font-size:14px;padding:10px 16px;border-radius:6px;cursor:pointer;">
+        Panier
+        <span style="{{ cartPillStyle }}">{{ cartCount }}</span>
+      </button>
+    </div>
+  </nav>
+
+  <section style="background:linear-gradient(180deg,#384633 0%,#1d3524 62%,#0e2a1a 100%);border-bottom:1px solid rgba(244,234,208,0.08);">
+    <div class="vo-shop-head" style="max-width:1180px;margin:0 auto;padding:64px 24px 56px;">
+      <div>
+        <span style="display:inline-block;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:#e8b923;margin-bottom:16px;">Séminaire Saint-Joseph</span>
+        <h1 style="margin:0 0 16px;font-family:'Anton',sans-serif;font-size:clamp(34px,6.5vw,64px);line-height:0.98;text-transform:uppercase;color:#f4ead0;">
+          La boutique<br><span style="color:#e8b923;">Vert et Or</span>
+        </h1>
+        <p style="font-size:17px;line-height:1.45;max-width:460px;color:#cfe0d2;margin:0;">
+          Porte les couleurs de l'école. Chandails, hoodies, tasses, souvenirs — tout ce qu'il faut pour se faire voir dans les gradins.
+        </p>
+      </div>
+      <div style="display:grid;gap:12px;">
+        <div style="display:flex;gap:14px;align-items:baseline;border-bottom:1px solid rgba(244,234,208,0.14);padding-bottom:12px;">
+          <span style="font-family:'Anton',sans-serif;font-size:32px;color:#e8b923;line-height:1;">{{ productCount }}</span>
+          <span style="font-size:14px;color:#a9c2ac;">articles dans la collection</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:baseline;border-bottom:1px solid rgba(244,234,208,0.14);padding-bottom:12px;">
+          <span style="font-family:'Anton',sans-serif;font-size:32px;color:#e8b923;line-height:1;">0 $</span>
+          <span style="font-size:14px;color:#a9c2ac;">de frais — récupération à l'école</span>
+        </div>
+        <p style="font-size:13px;color:#7f9a84;margin:4px 0 0;">*Prix et articles à titre indicatif — à valider avec l'école avant toute vente réelle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="boutique" style="max-width:1180px;margin:0 auto;padding:40px 24px 16px;">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <sc-for list="{{ categoryFilters }}" as="cat" hint-placeholder-count="7">
+        <button type="button" onClick="{{ cat.onClick }}" style="{{ cat.style }}">{{ cat.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:24px 24px 96px;">
+    <div class="vo-grid">
+      <sc-for list="{{ visibleProducts }}" as="p" hint-placeholder-count="12">
+        <div style="display:flex;flex-direction:column;background:#153a24;border:1px solid rgba(244,234,208,0.1);border-radius:12px;overflow:hidden;">
+          <div style="position:relative;aspect-ratio:1/1;background:#0f2f1d;">
+            <image-slot id="{{ p.slotId }}" shape="rect" placeholder="{{ p.slotPlaceholder }}"></image-slot>
+            <sc-if value="{{ p.hasBadge }}" hint-placeholder-val="{{ true }}">
+              <span style="{{ p.badgeStyle }}">{{ p.badge }}</span>
+            </sc-if>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;padding:16px;flex:1;">
+            <div style="font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#7f9a84;">{{ p.category }}</div>
+            <div style="font-size:15px;font-weight:700;line-height:1.3;color:#f4ead0;">{{ p.name }}</div>
+            <div style="font-family:'Anton',sans-serif;font-size:22px;color:#e8b923;line-height:1;">{{ p.priceLabel }}</div>
+            <sc-if value="{{ p.hasSizes }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                <sc-for list="{{ p.sizes }}" as="s" hint-placeholder-count="4">
+                  <button type="button" onClick="{{ s.onClick }}" style="{{ s.style }}">{{ s.label }}</button>
+                </sc-for>
+              </div>
+            </sc-if>
+            <button type="button" onClick="{{ p.onAdd }}" style="margin-top:auto;background:transparent;color:#f4ead0;border:1px solid rgba(244,234,208,0.4);font-family:'Archivo',sans-serif;font-weight:700;font-size:14px;padding:11px 14px;border-radius:6px;cursor:pointer;" style-hover="background:#e8b923;color:#0e2a1a;border-color:#e8b923;">Ajouter</button>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="commander" style="background:#0a1f13;border-top:1px solid rgba(244,234,208,0.1);padding:72px 24px;">
+    <div style="max-width:1180px;margin:0 auto;">
+      <h2 style="font-family:'Anton',sans-serif;font-size:clamp(26px,4vw,40px);text-transform:uppercase;margin:0 0 32px;color:#f4ead0;">Comment commander</h2>
+      <div class="vo-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+        <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+          <div style="border-top:2px solid #e8b923;padding-top:18px;">
+            <div style="font-family:'Anton',sans-serif;font-size:15px;color:#e8b923;margin-bottom:10px;">{{ step.num }}</div>
+            <div style="font-size:17px;font-weight:700;color:#f4ead0;margin-bottom:8px;">{{ step.title }}</div>
+            <p style="font-size:14px;line-height:1.5;color:#a9c2ac;margin:0;">{{ step.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#0a1f13;padding:0 24px 56px;text-align:center;">
+    <span style="display:inline-flex;align-items:center;justify-content:center;background:transparent;border-radius:10px;padding:11px 14px;margin-bottom:18px;">
+      <img src="assets/logo-vert-et-or-transparent.png" alt="Logo Vert et Or" style="width:66px;display:block;">
+    </span>
+    <p style="font-size:13px;color:#7f9a84;margin:0;">Page conçue par Billy Gélinas, éleve du Séminaire Saint-Joseph</p>
+  </section>
+
+  <div style="{{ cartScrimStyle }}" onClick="{{ closeCart }}"></div>
+  <aside style="{{ cartPanelStyle }}">
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid rgba(244,234,208,0.12);">
+      <span style="font-family:'Anton',sans-serif;font-size:22px;text-transform:uppercase;color:#f4ead0;">Ton panier</span>
+      <button type="button" onClick="{{ closeCart }}" aria-label="Fermer le panier" style="background:none;border:none;color:#f4ead0;font-size:26px;line-height:1;cursor:pointer;padding:0 4px;">×</button>
+    </div>
+    <div style="flex:1;overflow-y:auto;padding:8px 24px;">
+      <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ true }}">
+        <p style="font-size:15px;color:#a9c2ac;padding:24px 0;margin:0;">Ton panier est vide. Choisis tes couleurs.</p>
+      </sc-if>
+      <sc-for list="{{ cartLines }}" as="line" hint-placeholder-count="0">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:16px 0;border-bottom:1px solid rgba(244,234,208,0.1);">
+          <div>
+            <div style="font-size:15px;font-weight:700;color:#f4ead0;">{{ line.name }}</div>
+            <div style="font-size:12px;color:#7f9a84;margin-top:3px;">{{ line.meta }}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <button type="button" onClick="{{ line.onMinus }}" aria-label="Retirer un" style="width:28px;height:28px;background:transparent;border:1px solid rgba(244,234,208,0.3);color:#f4ead0;border-radius:4px;cursor:pointer;font-size:15px;line-height:1;">−</button>
+            <span style="font-family:'Anton',sans-serif;font-size:16px;color:#f4ead0;min-width:16px;text-align:center;">{{ line.qty }}</span>
+            <button type="button" onClick="{{ line.onPlus }}" aria-label="Ajouter un" style="width:28px;height:28px;background:transparent;border:1px solid rgba(244,234,208,0.3);color:#f4ead0;border-radius:4px;cursor:pointer;font-size:15px;line-height:1;">+</button>
+            <span style="font-family:'Anton',sans-serif;font-size:17px;color:#e8b923;min-width:56px;text-align:right;">{{ line.lineTotal }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div style="padding:20px 24px 24px;border-top:1px solid rgba(244,234,208,0.12);">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;">
+        <span style="font-size:14px;text-transform:uppercase;letter-spacing:0.08em;color:#a9c2ac;">Total</span>
+        <span style="font-family:'Anton',sans-serif;font-size:30px;color:#e8b923;">{{ cartTotal }}</span>
+      </div>
+      <button type="button" onClick="{{ requestOrder }}" style="width:100%;background:#e8b923;color:#0e2a1a;border:none;font-family:'Archivo',sans-serif;font-weight:800;font-size:15px;padding:15px;border-radius:6px;cursor:pointer;">Envoyer ma commande</button>
+      <p style="font-size:12px;line-height:1.5;color:#7f9a84;margin:12px 0 0;">Aucun paiement en ligne. Ta commande est notée, puis payée et récupérée à l'école.</p>
+    </div>
+  </aside>
+
+  <div style="{{ toastStyle }}">{{ toastMessage }}</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+const CATEGORIES = ["Tout", "Vêtements", "Hoodies & polars", "Casquettes & tuques", "Verres & tasses", "Sacs & accessoires", "Souvenirs & fierté"];
+
+const APPAREL_SIZES = ["TP", "P", "M", "G", "TG", "2TG"];
+const HAT_SIZES = ["Unique", "Junior"];
+
+const PRODUCTS = [
+  { id: "jersey-match", name: "Chandail de match réplique", cat: "Vêtements", price: 79, badge: "Populaire", sizes: APPAREL_SIZES },
+  { id: "jersey-perso", name: "Chandail personnalisé — nom et numéro", cat: "Vêtements", price: 94, badge: "Sur mesure", sizes: APPAREL_SIZES },
+  { id: "tshirt-logo", name: "T-shirt logo classique", cat: "Vêtements", price: 28, sizes: APPAREL_SIZES },
+  { id: "tshirt-tech", name: "T-shirt d'entraînement respirant", cat: "Vêtements", price: 34, sizes: APPAREL_SIZES },
+  { id: "longsleeve", name: "Chandail à manches longues", cat: "Vêtements", price: 42, sizes: APPAREL_SIZES },
+  { id: "camisole", name: "Camisole de sport", cat: "Vêtements", price: 26, sizes: APPAREL_SIZES },
+  { id: "polo", name: "Polo brodé", cat: "Vêtements", price: 49, sizes: APPAREL_SIZES },
+  { id: "short", name: "Short d'entraînement", cat: "Vêtements", price: 32, sizes: APPAREL_SIZES },
+  { id: "jogger", name: "Pantalon jogger", cat: "Vêtements", price: 58, sizes: APPAREL_SIZES },
+
+  { id: "hoodie", name: "Hoodie classique brodé", cat: "Hoodies & polars", price: 69, badge: "Populaire", sizes: APPAREL_SIZES },
+  { id: "hoodie-zip", name: "Hoodie zippé", cat: "Hoodies & polars", price: 79, sizes: APPAREL_SIZES },
+  { id: "crewneck", name: "Crewneck ouaté", cat: "Hoodies & polars", price: 62, sizes: APPAREL_SIZES },
+  { id: "fleece", name: "Veste polaire", cat: "Hoodies & polars", price: 89, sizes: APPAREL_SIZES },
+  { id: "windbreaker", name: "Coupe-vent imperméable", cat: "Hoodies & polars", price: 95, badge: "Nouveau", sizes: APPAREL_SIZES },
+  { id: "varsity", name: "Veste collégiale Vert et Or", cat: "Hoodies & polars", price: 189, badge: "Édition limitée", sizes: APPAREL_SIZES },
+
+  { id: "snapback", name: "Casquette snapback", cat: "Casquettes & tuques", price: 32, sizes: HAT_SIZES },
+  { id: "cap", name: "Casquette ajustable", cat: "Casquettes & tuques", price: 28, sizes: HAT_SIZES },
+  { id: "tuque", name: "Tuque à pompon", cat: "Casquettes & tuques", price: 26, sizes: HAT_SIZES },
+  { id: "bandeau", name: "Bandeau de sport", cat: "Casquettes & tuques", price: 16 },
+  { id: "cache-cou", name: "Cache-cou d'hiver", cat: "Casquettes & tuques", price: 22 },
+
+  { id: "tasse", name: "Tasse en céramique 350 ml", cat: "Verres & tasses", price: 18, badge: "Populaire" },
+  { id: "bouteille", name: "Bouteille isolée en inox 750 ml", cat: "Verres & tasses", price: 34 },
+  { id: "gourde", name: "Gourde de sport 1 L", cat: "Verres & tasses", price: 22 },
+  { id: "thermos", name: "Thermos de gradin 500 ml", cat: "Verres & tasses", price: 29 },
+  { id: "pinte", name: "Verre à pinte gravé", cat: "Verres & tasses", price: 14 },
+  { id: "shaker", name: "Shaker à protéines", cat: "Verres & tasses", price: 19 },
+
+  { id: "sac-sport", name: "Sac de sport", cat: "Sacs & accessoires", price: 54 },
+  { id: "sac-dos", name: "Sac à dos", cat: "Sacs & accessoires", price: 62, badge: "Nouveau" },
+  { id: "sac-cordon", name: "Sac à cordon", cat: "Sacs & accessoires", price: 18 },
+  { id: "serviette", name: "Serviette de sport", cat: "Sacs & accessoires", price: 22 },
+  { id: "bas", name: "Bas de sport — paire", cat: "Sacs & accessoires", price: 14, sizes: ["P", "M", "G"] },
+  { id: "mitaines", name: "Mitaines tactiles", cat: "Sacs & accessoires", price: 19, sizes: HAT_SIZES },
+  { id: "porte-cles", name: "Porte-clés en métal", cat: "Sacs & accessoires", price: 9 },
+  { id: "laniere", name: "Lanière porte-cartes", cat: "Sacs & accessoires", price: 11 },
+  { id: "parapluie", name: "Parapluie de stade", cat: "Sacs & accessoires", price: 34 },
+
+  { id: "fanion", name: "Fanion en feutre", cat: "Souvenirs & fierté", price: 24 },
+  { id: "drapeau", name: "Drapeau 90 × 150 cm", cat: "Souvenirs & fierté", price: 39 },
+  { id: "autocollants", name: "Ensemble d'autocollants", cat: "Souvenirs & fierté", price: 8 },
+  { id: "epinglette", name: "Épinglette émaillée", cat: "Souvenirs & fierté", price: 12 },
+  { id: "affiche", name: "Affiche de l'équipe", cat: "Souvenirs & fierté", price: 16 },
+  { id: "ballon", name: "Ballon souvenir signé", cat: "Souvenirs & fierté", price: 89, badge: "Édition limitée" },
+  { id: "couverture", name: "Couverture de gradin", cat: "Souvenirs & fierté", price: 45 },
+  { id: "coussin", name: "Coussin de gradin", cat: "Souvenirs & fierté", price: 19 },
+  { id: "aimant", name: "Aimant de collection", cat: "Souvenirs & fierté", price: 7 },
+  { id: "carte-cadeau", name: "Carte-cadeau boutique", cat: "Souvenirs & fierté", price: 25, badge: "Idée cadeau" }
+];
+
+const BADGE_COLORS = {
+  "Populaire": "#e8b923",
+  "Nouveau": "#8fd19e",
+  "Édition limitée": "#f0a35e",
+  "Sur mesure": "#cfe0d2",
+  "Idée cadeau": "#cfe0d2"
+};
+
+class Component extends DCLogic {
+  state = { category: "Tout", cart: [], cartOpen: false, sizeChoice: {}, toast: "" };
+
+  money(n) { return n + " $"; }
+
+  filterStyle(active) {
+    return "font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background 120ms,color 120ms;border:1px solid " +
+      (active ? "#e8b923;background:#e8b923;color:#0e2a1a;" : "rgba(244,234,208,0.28);background:transparent;color:#f4ead0;");
+  }
+
+  sizeStyle(active) {
+    return "font-family:'Archivo',sans-serif;font-size:11px;font-weight:700;min-width:32px;padding:5px 8px;border-radius:4px;cursor:pointer;transition:background 120ms,color 120ms;border:1px solid " +
+      (active ? "#e8b923;background:#e8b923;color:#0e2a1a;" : "rgba(244,234,208,0.25);background:transparent;color:#cfe0d2;");
+  }
+
+  flash(msg) {
+    clearTimeout(this._t);
+    this.setState({ toast: msg });
+    this._t = setTimeout(() => this.setState({ toast: "" }), 2200);
+  }
+
+  addToCart(product) {
+    const size = product.sizes ? (this.state.sizeChoice[product.id] || product.sizes[0]) : null;
+    const key = product.id + (size ? "|" + size : "");
+    const cart = this.state.cart.slice();
+    const found = cart.find(l => l.key === key);
+    if (found) cart[cart.indexOf(found)] = Object.assign({}, found, { qty: found.qty + 1 });
+    else cart.push({ key: key, id: product.id, name: product.name, price: product.price, size: size, qty: 1 });
+    this.setState({ cart: cart });
+    this.flash(product.name + " ajouté au panier");
+  }
+
+  bump(key, delta) {
+    const cart = this.state.cart
+      .map(l => l.key === key ? Object.assign({}, l, { qty: l.qty + delta }) : l)
+      .filter(l => l.qty > 0);
+    this.setState({ cart: cart });
+  }
+
+  renderVals() {
+    const st = this.state;
+    const cat = st.category;
+    const visible = cat === "Tout" ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+    const count = st.cart.reduce((n, l) => n + l.qty, 0);
+    const total = st.cart.reduce((n, l) => n + l.qty * l.price, 0);
+    return {
+      calendarHref: "calendrier.dc.html",
+      productCount: PRODUCTS.length,
+
+      categoryFilters: CATEGORIES.map(c => ({
+        label: c,
+        style: this.filterStyle(c === cat),
+        onClick: () => this.setState({ category: c })
+      })),
+
+      visibleProducts: visible.map(p => ({
+        slotId: "shop-" + p.id,
+        slotPlaceholder: "Photo — " + p.name,
+        name: p.name,
+        category: p.cat,
+        priceLabel: this.money(p.price),
+        hasBadge: !!p.badge,
+        badge: p.badge || "",
+        badgeStyle: "position:absolute;top:10px;left:10px;z-index:2;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;padding:4px 9px;border-radius:999px;background:#0a1f13;color:" + (BADGE_COLORS[p.badge] || "#e8b923") + ";border:1px solid " + (BADGE_COLORS[p.badge] || "#e8b923") + ";pointer-events:none;",
+        hasSizes: !!p.sizes,
+        sizes: (p.sizes || []).map(s => ({
+          label: s,
+          style: this.sizeStyle((st.sizeChoice[p.id] || p.sizes[0]) === s),
+          onClick: () => this.setState({ sizeChoice: Object.assign({}, st.sizeChoice, { [p.id]: s }) })
+        })),
+        onAdd: () => this.addToCart(p)
+      })),
+
+      cartCount: count,
+      cartEmpty: st.cart.length === 0,
+      cartTotal: this.money(total),
+      cartPillStyle: "display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:#0e2a1a;color:#e8b923;font-size:12px;font-weight:800;",
+      cartLines: st.cart.map(l => ({
+        name: l.name,
+        meta: (l.size ? "Taille " + l.size + " · " : "") + this.money(l.price) + " ch.",
+        qty: l.qty,
+        lineTotal: this.money(l.qty * l.price),
+        onPlus: () => this.bump(l.key, 1),
+        onMinus: () => this.bump(l.key, -1)
+      })),
+
+      toggleCart: () => this.setState({ cartOpen: !st.cartOpen }),
+      closeCart: () => this.setState({ cartOpen: false }),
+      requestOrder: () => this.flash(count ? "Commande notée — présente-toi au secrétariat pour payer." : "Ajoute d'abord un article."),
+
+      cartScrimStyle: "position:fixed;inset:0;z-index:8;background:rgba(10,31,19,0.6);transition:opacity 180ms;" +
+        (st.cartOpen ? "opacity:1;pointer-events:auto;" : "opacity:0;pointer-events:none;"),
+      cartPanelStyle: "position:fixed;top:0;right:0;bottom:0;z-index:9;width:min(420px,100%);display:flex;flex-direction:column;background:#0a1f13;border-left:1px solid rgba(244,234,208,0.14);transition:transform 220ms ease;transform:translateX(" + (st.cartOpen ? "0" : "102%") + ");",
+
+      toastMessage: st.toast,
+      toastStyle: "position:fixed;left:50%;bottom:28px;z-index:11;transform:translateX(-50%) translateY(" + (st.toast ? "0" : "12px") + ");background:#f4ead0;color:#0e2a1a;font-size:14px;font-weight:700;padding:13px 22px;border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,0.35);transition:opacity 180ms,transform 180ms;" + (st.toast ? "opacity:1;" : "opacity:0;pointer-events:none;"),
+
+      steps: [
+        { num: "01", title: "Choisis tes articles", body: "Ajoute au panier, choisis ta taille. Rien n'est payé en ligne — c'est une liste, pas une caisse." },
+        { num: "02", title: "Envoie ta commande", body: "Le bouton note ta commande. Apporte-la au secrétariat ou au responsable des sports." },
+        { num: "03", title: "Paie et récupère", body: "Paiement à l'école, récupération sur place. Aucun frais de livraison." }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>
